@@ -31,6 +31,9 @@
     google-cloud-sdk   # gcloud
     kubectl            # Kubernetes CLI
 
+    #claude 
+    claude-monitor
+
     # --- Media & misc ---
     ffmpeg             # media processing
     chafa              # terminal image viewer
@@ -38,6 +41,9 @@
     glow               # markdown viewer
     scrcpy             # Android screen mirror
     ngrok              # tunnels
+
+    #utility 
+    csvlens
 
     # --- Container ---
     colima             # container runtime for macOS

@@ -84,6 +84,9 @@ in
       nvim-ts-autotag
       undotree
 
+      #claude code 
+      claude-code-nvim
+
       # --- Completion ---
       nvim-cmp
       cmp-buffer
