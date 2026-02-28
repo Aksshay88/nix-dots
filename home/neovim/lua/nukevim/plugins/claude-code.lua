@@ -1,17 +1,16 @@
 require("claude-code").setup({
   window = {
-    split_ratio = 0.3,
-    position = "botright",
+    position = "float",
     enter_insert = true,
     hide_numbers = true,
     hide_signcolumn = true,
     float = {
-      width = "80%",
-      height = "80%",
+      width = "90%",
+      height = "90%",
       row = "center",
       col = "center",
       relative = "editor",
-      border = "rounded",
+      border = "double",
     },
   },
   refresh = {
@@ -47,3 +46,5 @@ require("claude-code").setup({
     scrolling = true,
   },
 })
+
+vim.keymap.set("n", "<leader>CC", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })

@@ -31,7 +31,8 @@
     google-cloud-sdk   # gcloud
     kubectl            # Kubernetes CLI
 
-    #claude 
+    # --- Claude ---
+    claude-code            # Claude Code CLI
     claude-monitor
 
     # --- Media & misc ---
