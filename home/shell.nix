@@ -31,11 +31,16 @@
       lx = "eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale";
       lS = "eza -1";
       lt = "eza --tree --level=2";
+      "claude-aws" = "/Users/mac123/.claude-aws/start-claude-aws.sh";
+      "nix-rebuild" = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#Aksshays-MacBook-Pro";
     };
 
     initContent = ''
       # Source secrets file (API keys, tokens — not in git)
       [ -f ~/.secrets ] && source ~/.secrets
+
+      # Add ~/.local/bin to PATH (needed for Claude Code native installation)
+      export PATH="$HOME/.local/bin:$PATH"
 
       # eza dotfiles alias (can't be in shellAliases due to quotes)
       alias l.="eza -a | grep -E '^\.'"
