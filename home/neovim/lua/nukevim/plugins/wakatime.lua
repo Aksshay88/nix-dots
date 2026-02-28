@@ -1,0 +1,3 @@
+-- WakaTime plugin (installed by Nix)
+-- API key is read from ~/.wakatime.cfg (not hardcoded here)
+-- Run :WakaTimeApiKey in nvim to set it on a new machine

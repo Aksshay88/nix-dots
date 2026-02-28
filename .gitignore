@@ -1,0 +1,7 @@
+result
+.direnv
+
+# Secrets — NEVER commit
+*.secrets
+.secrets
+secrets.env

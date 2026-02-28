@@ -1,0 +1,2 @@
+-- Plugins are managed by Nix (see home/neovim/default.nix).
+-- This file is intentionally empty — no Packer bootstrap needed.
