@@ -202,13 +202,6 @@ git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 ```
 
-### 4. **Install Claude Code** (if using custom installation):
-
-```bash
-# The configuration includes claude-code, but for custom setup:
-# Follow instructions at https://github.com/anthropics/claude-code
-```
-
 ## Usage
 
 ### Daily Commands
