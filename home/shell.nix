@@ -44,6 +44,12 @@
 
       # eza dotfiles alias (can't be in shellAliases due to quotes)
       alias l.="eza -a | grep -E '^\.'"
+
+      # Show fastfetch on terminal open (skip in nested shells and tmux)
+      if [[ -z "$FASTFETCH_SHOWN" && -z "$TMUX" ]]; then
+        export FASTFETCH_SHOWN=1
+        fastfetch
+      fi
     '';
   };
 

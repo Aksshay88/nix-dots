@@ -3,6 +3,7 @@
 {
   programs.kitty = {
     enable = true;
+    shellIntegration.enableZshIntegration = true;
 
     font = {
       name = "MesloLGS NF Bold";

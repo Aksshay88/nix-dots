@@ -8,6 +8,7 @@
     ./tmux.nix
     ./kitty.nix
     ./neovim
+    ./fastfetch
   ];
 
   home.username = "mac123";

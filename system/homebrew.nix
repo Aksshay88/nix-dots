@@ -11,13 +11,12 @@
       upgrade = true;      # Upgrade packages on rebuild
     };
 
-    # Taps
-    taps = [
-      "homebrew/services"
-    ];
+    taps = [];
+
 
     # Homebrew formulae (CLI tools not in nixpkgs)
     brews = [
+      "sketchybar"        # Custom macOS menu bar
       "gemini-cli"        # Gemini AI CLI
       "media-control"     # macOS media control
       "nowplaying-cli"    # Currently playing music

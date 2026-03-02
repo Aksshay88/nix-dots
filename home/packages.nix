@@ -48,7 +48,6 @@
 
     # --- Utilities ---
     csvlens
-    sketchybar         # Custom macOS menu bar
 
     # --- Container ---
     colima             # container runtime for macOS

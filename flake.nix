@@ -19,9 +19,13 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-felixkratz = {
+      url = "github:FelixKratz/homebrew-formulae";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-felixkratz }:
   let
     username = "mac123";
     hostname = "Aksshays-MacBook-Pro";
@@ -41,6 +45,7 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
+              "FelixKratz/homebrew-formulae" = homebrew-felixkratz;
             };
             mutableTaps = false;
             autoMigrate = true;
