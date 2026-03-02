@@ -25,9 +25,11 @@
     python3            # Python
     lua                # Lua
     pipx               # Python CLI tool installer
+    vscode             # Visual Studio Code
 
     # --- Cloud & infra ---
     awscli2            # AWS CLI
+    aws-vault          # AWS credential management
     google-cloud-sdk   # gcloud
     kubectl            # Kubernetes CLI
 
@@ -42,9 +44,11 @@
     glow               # markdown viewer
     scrcpy             # Android screen mirror
     ngrok              # tunnels
+    android-tools      # ADB and fastboot
 
-    #utility 
+    # --- Utilities ---
     csvlens
+    sketchybar         # Custom macOS menu bar
 
     # --- Container ---
     colima             # container runtime for macOS
