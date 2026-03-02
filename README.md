@@ -1,8 +1,8 @@
-# 🚀 Nix Development Environment
+# Nix Development Environment
 
 A **reproducible**, **declarative**, and **cross-platform** development environment using Nix, nix-darwin, and home-manager. Works on both macOS (Apple Silicon & Intel) and Linux machines.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [What This Does](#-what-this-does)
 - [Prerequisites](#-prerequisites)
@@ -14,11 +14,12 @@ A **reproducible**, **declarative**, and **cross-platform** development environm
 - [Customization](#-customization)
 - [Troubleshooting](#-troubleshooting)
 
-## 🎯 What This Does
+## What This Does
 
 This configuration provides a complete, reproducible development environment with:
 
 ### **Core Tools**
+
 - **Modern CLI replacements**: `eza` (ls), `bat` (cat), `fd` (find), `ripgrep` (grep), `fzf` (fuzzy finder), `zoxide` (smart cd)
 - **Shell**: Zsh with Oh-My-Zsh, syntax highlighting, and autosuggestions
 - **Terminal**: Kitty (GPU-accelerated terminal emulator)
@@ -27,6 +28,7 @@ This configuration provides a complete, reproducible development environment wit
 - **Git**: Configured with Lazygit TUI
 
 ### **Development Stack**
+
 - **Languages**: Node.js, Python 3, Lua
 - **Package Managers**: pnpm, pipx
 - **Cloud Tools**: AWS CLI v2, Google Cloud SDK, kubectl
@@ -34,29 +36,33 @@ This configuration provides a complete, reproducible development environment wit
 - **AI Tools**: Claude Code CLI, Claude Monitor
 
 ### **System Settings** (macOS only)
+
 - Auto-hiding dock
 - Show all file extensions
 - Optimized keyboard repeat rates
 - Experimental Nix features (flakes, nix-command)
 
-## 📦 Prerequisites
+## Prerequisites
 
 ### macOS
+
 - macOS 11+ (Big Sur or later)
 - Apple Silicon (M1/M2/M3) or Intel processor
 - Admin access for system-level changes
 - ~5GB free disk space
 
 ### Linux
+
 - x86_64 architecture
 - systemd-based distribution (Ubuntu, Fedora, etc.)
 - ~3GB free disk space
 
-## 🛠️ Installation
+## Installation
 
 ### macOS Setup
 
 1. **Install Nix** (if not already installed):
+
 ```bash
 # Official Nix installer with daemon and multi-user support
 sh <(curl -L https://nixos.org/nix/install)
@@ -66,6 +72,7 @@ source /etc/bashrc  # or restart terminal
 ```
 
 2. **Clone this repository**:
+
 ```bash
 # Create config directory if it doesn't exist
 mkdir -p ~/.config
@@ -78,6 +85,7 @@ git clone https://github.com/YOUR_USERNAME/nix-darwin.git ~/.config/nix-darwin
 ```
 
 3. **Customize for your machine**:
+
 ```bash
 cd ~/.config/nix-darwin
 
@@ -95,6 +103,7 @@ vim home/git.nix
 ```
 
 4. **Initial nix-darwin installation**:
+
 ```bash
 # Build and activate the configuration
 nix run nix-darwin -- switch --flake ~/.config/nix-darwin#YOUR_HOSTNAME
@@ -104,6 +113,7 @@ nix run nix-darwin -- switch --flake ~/.config/nix-darwin#Aksshays-MacBook-Pro
 ```
 
 5. **Reload your shell**:
+
 ```bash
 exec zsh
 ```
@@ -111,6 +121,7 @@ exec zsh
 ### Linux Setup
 
 1. **Install Nix**:
+
 ```bash
 # Official Nix installer
 sh <(curl -L https://nixos.org/nix/install) --daemon
@@ -121,12 +132,14 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
 
 2. **Clone this repository**:
+
 ```bash
 mkdir -p ~/.config
 git clone https://github.com/YOUR_USERNAME/nix-darwin.git ~/.config/nix-darwin
 ```
 
 3. **Customize for your user**:
+
 ```bash
 cd ~/.config/nix-darwin
 
@@ -139,6 +152,7 @@ vim home/git.nix
 ```
 
 4. **Activate home-manager**:
+
 ```bash
 # Build and activate (Linux uses standalone home-manager)
 nix run home-manager -- switch --flake ~/.config/nix-darwin#YOUR_USERNAME
@@ -148,13 +162,15 @@ nix run home-manager -- switch --flake ~/.config/nix-darwin#mac123
 ```
 
 5. **Reload your shell**:
+
 ```bash
 exec zsh
 ```
 
-## 🔧 Post-Installation
+## Post-Installation
 
 ### 1. **Create secrets file** (for API keys):
+
 ```bash
 # Create a secrets file for environment variables
 touch ~/.secrets
@@ -170,6 +186,7 @@ EOF
 ```
 
 ### 2. **Container runtime** (macOS only):
+
 ```bash
 # Start Colima (Docker Desktop alternative)
 colima start --cpu 4 --memory 8 --disk 50
@@ -179,18 +196,20 @@ docker run hello-world
 ```
 
 ### 3. **Configure Git** (if not using provided config):
+
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 ```
 
 ### 4. **Install Claude Code** (if using custom installation):
+
 ```bash
 # The configuration includes claude-code, but for custom setup:
 # Follow instructions at https://github.com/anthropics/claude-code
 ```
 
-## 📖 Usage
+## Usage
 
 ### Daily Commands
 
@@ -211,31 +230,12 @@ nix-collect-garbage -d
 nix search nixpkgs package-name
 ```
 
-### Useful Aliases
-
-The configuration includes many helpful aliases:
-
-```bash
-# Navigation
-c       # clear
-x       # exit
-l       # eza with details
-la      # eza with all files
-lt      # eza tree view
-
-# Development
-lg      # lazygit
-ld      # lazydocker
-
-# Claude
-claude-aws  # Start Claude AWS environment
-```
-
-## 🎨 Customization
+## Customization
 
 ### Adding Packages
 
 Edit `home/packages.nix`:
+
 ```nix
 home.packages = with pkgs; [
   # Add your packages here
@@ -246,6 +246,7 @@ home.packages = with pkgs; [
 ### Modifying Shell Configuration
 
 Edit `home/shell.nix` for:
+
 - Shell aliases
 - Environment variables
 - Zsh plugins
@@ -254,6 +255,7 @@ Edit `home/shell.nix` for:
 ### Adding System-Level Settings (macOS)
 
 Edit `system/default.nix` for:
+
 - macOS defaults
 - System packages
 - Nix daemon settings
@@ -266,41 +268,6 @@ git add -A
 git commit -m "feat: customize for my setup"
 git remote add origin YOUR_REPO_URL
 git push -u origin main
-```
-
-## 🚨 Troubleshooting
-
-### Common Issues
-
-#### "command not found" after installation
-```bash
-# Ensure Nix is in your PATH
-echo $PATH | grep nix
-# If missing, source the Nix profile
-source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-```
-
-#### Build fails with "error: attribute not found"
-```bash
-# Update flake inputs
-nix flake update ~/.config/nix-darwin
-
-# Check your hostname/username matches flake.nix
-hostname
-whoami
-```
-
-#### Permission denied errors (macOS)
-```bash
-# Ensure you're using sudo for darwin-rebuild
-sudo darwin-rebuild switch --flake ~/.config/nix-darwin#YOUR_HOSTNAME
-```
-
-#### Colima/Docker issues (macOS)
-```bash
-# Reset Colima
-colima delete
-colima start --cpu 4 --memory 8 --disk 50
 ```
 
 ### Getting Help
@@ -317,7 +284,7 @@ colima start --cpu 4 --memory 8 --disk 50
    - [NixOS Discourse](https://discourse.nixos.org/)
    - [Nix Discord](https://discord.gg/nix)
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ~/.config/nix-darwin/
@@ -336,11 +303,12 @@ colima start --cpu 4 --memory 8 --disk 50
         └── default.nix # Neovim configuration
 ```
 
-## 🔄 Migration from Existing Setup
+## Migration from Existing Setup
 
 If you're migrating from a traditional dotfiles setup:
 
 1. **Backup existing configs**:
+
 ```bash
 mkdir ~/dotfiles-backup
 cp -r ~/.zshrc ~/.gitconfig ~/.config ~/dotfiles-backup/
@@ -355,20 +323,17 @@ cp -r ~/.zshrc ~/.gitconfig ~/.config ~/dotfiles-backup/
 
 4. **Test thoroughly** before removing backups
 
-## 📝 License
+## License
 
 Feel free to use and modify this configuration for your needs.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with:
+
 - [Nix](https://nixos.org/)
 - [nix-darwin](https://github.com/LnL7/nix-darwin)
 - [Home Manager](https://github.com/nix-community/home-manager)
 - [Nixpkgs](https://github.com/NixOS/nixpkgs)
 
 ---
-
-**Happy Coding!** 🎉
-
-For issues or questions, please open an issue on GitHub.
