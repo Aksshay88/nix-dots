@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  # Nix doesn't support \u escape sequences, so we need to get ESC char via JSON
+  esc = builtins.fromJSON ''"\\u001b"'';
+in
 {
   # Copy the logo image to ~/.config/fastfetch/
   home.file.".config/fastfetch/aottt.png".source = ./aottt.png;
@@ -10,7 +14,7 @@
 
     logo = {
       source = "~/.config/fastfetch/aottt.png";
-      type = "kitty";
+      type = "kitty-direct";
       height = 22;
       width = 28;
     };
@@ -131,7 +135,7 @@
       }
       {
         type = "custom";
-        format = "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m  \u001b[39m    \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m ";
+        format = "${esc}[90m  ${esc}[31m  ${esc}[32m  ${esc}[33m  ${esc}[34m  ${esc}[35m  ${esc}[36m  ${esc}[37m  ${esc}[38m  ${esc}[39m  ${esc}[39m    ${esc}[38m  ${esc}[37m  ${esc}[36m  ${esc}[35m  ${esc}[34m  ${esc}[33m  ${esc}[32m  ${esc}[31m  ${esc}[90m ";
       }
       "break"
     ];
