@@ -35,6 +35,10 @@
       "nix-rebuild" = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#Aksshays-MacBook-Pro";
     };
 
+    sessionVariables = {
+      ANI_CLI_PLAYER = "mpv";  # Force mpv on macOS (default is iina)
+    };
+
     initContent = ''
       # Source secrets file (API keys, tokens — not in git)
       [ -f ~/.secrets ] && source ~/.secrets

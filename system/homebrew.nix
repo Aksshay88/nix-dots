@@ -16,12 +16,13 @@
 
     # Homebrew formulae (CLI tools not in nixpkgs)
     brews = [
+      "mpv"               # Video player for ani-cli (avoids Swift compile in nixpkgs)
       "sketchybar"        # Custom macOS menu bar
       "gemini-cli"        # Gemini AI CLI
       "media-control"     # macOS media control
       "nowplaying-cli"    # Currently playing music
       "switchaudio-osx"   # Audio device switcher
-      "taproom"          # Formula development
+      "taproom"           # Formula development
     ];
 
     # macOS GUI applications

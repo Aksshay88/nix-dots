@@ -26,6 +26,7 @@
     lua                # Lua
     pipx               # Python CLI tool installer
     vscode             # Visual Studio Code
+    television         #fuzzy finder
 
     # --- Cloud & infra ---
     awscli2            # AWS CLI
@@ -58,5 +59,11 @@
     nerd-fonts.hack
     nerd-fonts.victor-mono
     nerd-fonts.monaspace
+
+
+    # --- anime ---
+    # mpv excluded from ani-cli to avoid Swift compilation on macOS (mpv is in homebrew)
+    (ani-cli.override { withMpv = false; })
+
   ];
 }
