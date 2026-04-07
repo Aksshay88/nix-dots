@@ -20,8 +20,10 @@
     lazydocker         # docker TUI
     gh                 # GitHub CLI
     glab               # GitLab CLI
+    go                 # Go language
     nodejs             # Node.js
     pnpm               # fast npm
+    nodePackages.nodemon  # auto-restart node on file changes
     python3            # Python
     lua                # Lua
     pipx               # Python CLI tool installer
