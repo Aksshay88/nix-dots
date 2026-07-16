@@ -37,11 +37,18 @@
 
     sessionVariables = {
       ANI_CLI_PLAYER = "mpv";  # Force mpv on macOS (default is iina)
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
 
     initContent = ''
       # Source secrets file (API keys, tokens — not in git)
       [ -f ~/.secrets ] && source ~/.secrets
+
+      # >>> DevRev Claude Plugin >>>
+      get_secret() { security find-generic-password -s "$1" -w "/Users/mac123/Library/Keychains/devrev-claude.keychain-db" 2>/dev/null; }
+      export DEVREV_API_KEY=$(get_secret "DEVREV_API_KEY") GITHUB_TOKEN=$(get_secret "GITHUB_TOKEN") SLACK_BOT_TOKEN=$(get_secret "SLACK_BOT_TOKEN") CIRCLE_TOKEN=$(get_secret "CIRCLE_TOKEN") SNYK_TOKEN=$(get_secret "SNYK_TOKEN") GOOGLE_CLIENT_ID=$(get_secret "GOOGLE_CLIENT_ID") GOOGLE_CLIENT_SECRET=$(get_secret "GOOGLE_CLIENT_SECRET") GOOGLE_REFRESH_TOKEN=$(get_secret "GOOGLE_REFRESH_TOKEN") GOOGLE_ACCESS_TOKEN=$(get_secret "GOOGLE_ACCESS_TOKEN")
+      # <<< DevRev Claude Plugin <<<
 
       # Add ~/.local/bin to PATH (needed for Claude Code native installation)
       export PATH="$HOME/.local/bin:$PATH"
