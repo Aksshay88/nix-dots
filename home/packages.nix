@@ -39,6 +39,7 @@
     # --- Claude ---
     claude-code            # Claude Code CLI
     claude-monitor
+    codex
 
     # --- Media & misc ---
     ffmpeg             # media processing
